@@ -26,7 +26,7 @@ const CreateOrUpdateModal = ({
     setSystemName("");
     setSelectedType("Select Type");
     setHddCapacity("");
-  }
+  };
 
   useEffect(() => {
     if (isUpdate) {

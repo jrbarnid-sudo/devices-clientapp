@@ -21,8 +21,8 @@ function App() {
       const results = await getDevices();
 
       if (!results.length) {
-        setDeviceTypes(["MAC", "WINDOWS_SERVER", "WINDOWS_WORKSTATION"])
-      } else { 
+        setDeviceTypes(["MAC", "WINDOWS_SERVER", "WINDOWS_WORKSTATION"]);
+      } else {
         setDeviceTypes([
           ...new Set(["All", ...results.map((device) => device.type)]),
         ]);

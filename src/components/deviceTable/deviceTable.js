@@ -63,47 +63,48 @@ const DeviceTable = ({
             </tr>
           </thead>
           <tbody>
-            {sortedDevices?.length ?
-              sortedDevices
-                .filter(
-                  (device) =>
-                    device.type === selectedType || selectedType === "All"
-                )
-                .map((device) => (
-                  <tr className="bg-blue-200 lg:text-black" key={device.id}>
-                    <td className="p-3 font-medium">{device.system_name}</td>
-                    <td className="p-3">{friendlyTypeName(device.type)}</td>
-                    <td className="p-3">{device.hdd_capacity} GB</td>
-                    <td className="p-3 flex">
-                      <button
-                        className="hover:text-blue-700 text-blue-400 text-white font-bold py-2 px-2 mr-2"
-                        onClick={() => {
-                          setId(device.id);
-                          setName(device.system_name);
-                          setType(device.type);
-                          setCapacity(device.hdd_capacity);
-                          setModalIsOpen(true);
-                        }}
-                      >
-                        <PencilAltIcon
-                          className="w-5 h-5"
-                          aria-hidden="true"
-                          aria-label="Edit"
-                        />
-                      </button>
-                      <button
-                        className="font-bold py-2 px-2 mr-2"
-                        onClick={() => remove(device.id)}
-                      >
-                        <TrashIcon
-                          className="w-5 h-5 text-red-400 hover:text-red-700 cursor-pointer"
-                          aria-hidden="true"
-                          aria-label="Delete"
-                        />
-                      </button>
-                    </td>
-                  </tr>
-                )) : null}
+            {sortedDevices?.length
+              ? sortedDevices
+                  .filter(
+                    (device) =>
+                      device.type === selectedType || selectedType === "All"
+                  )
+                  .map((device) => (
+                    <tr className="bg-blue-200 lg:text-black" key={device.id}>
+                      <td className="p-3 font-medium">{device.system_name}</td>
+                      <td className="p-3">{friendlyTypeName(device.type)}</td>
+                      <td className="p-3">{device.hdd_capacity} GB</td>
+                      <td className="p-3 flex">
+                        <button
+                          className="hover:text-blue-700 text-blue-400 text-white font-bold py-2 px-2 mr-2"
+                          onClick={() => {
+                            setId(device.id);
+                            setName(device.system_name);
+                            setType(device.type);
+                            setCapacity(device.hdd_capacity);
+                            setModalIsOpen(true);
+                          }}
+                        >
+                          <PencilAltIcon
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                            aria-label="Edit"
+                          />
+                        </button>
+                        <button
+                          className="font-bold py-2 px-2 mr-2"
+                          onClick={() => remove(device.id)}
+                        >
+                          <TrashIcon
+                            className="w-5 h-5 text-red-400 hover:text-red-700 cursor-pointer"
+                            aria-hidden="true"
+                            aria-label="Delete"
+                          />
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+              : null}
           </tbody>
         </table>
       </div>
