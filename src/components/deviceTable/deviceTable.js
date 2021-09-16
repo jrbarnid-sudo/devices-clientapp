@@ -63,7 +63,7 @@ const DeviceTable = ({
             </tr>
           </thead>
           <tbody>
-            {sortedDevices?.length &&
+            {sortedDevices?.length ?
               sortedDevices
                 .filter(
                   (device) =>
@@ -103,7 +103,7 @@ const DeviceTable = ({
                       </button>
                     </td>
                   </tr>
-                ))}
+                )) : null}
           </tbody>
         </table>
       </div>
