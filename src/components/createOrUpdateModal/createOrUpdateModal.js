@@ -22,15 +22,19 @@ const CreateOrUpdateModal = ({
   const [hddCapacity, setHddCapacity] = useState("");
   const [capacityError, setCapacityError] = useState(false);
 
+  const clearValues = () => {
+    setSystemName("");
+    setSelectedType("Select Type");
+    setHddCapacity("");
+  }
+
   useEffect(() => {
     if (isUpdate) {
       setSystemName(name);
       setSelectedType(type);
       setHddCapacity(capacity);
     } else {
-      setSystemName("");
-      setSelectedType("Select Type");
-      setHddCapacity("");
+      clearValues();
     }
   }, [capacity, isUpdate, name, type]);
 
@@ -77,6 +81,7 @@ const CreateOrUpdateModal = ({
 
     if (valid) {
       await add(name, type, capacity);
+      clearValues();
       toggleModal();
     }
   };
